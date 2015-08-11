@@ -1,5 +1,5 @@
-import Stats.HttpRequest;
-import Stats.Profile;
+import stats.Profile;
+import stats.HttpRequest;
 
 import java.util.Scanner;
 

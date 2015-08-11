@@ -1,12 +1,14 @@
-import Stats.Constants;
-import Stats.HttpRequest;
+package stats;
+
+import stats.Constants;
+import stats.HttpRequest;
 import org.json.JSONObject;
 
 /**
  * Created by arjun on 8/10/15.
  */
 public class Profile {
-    // User's HTTP Stats.Profile
+    // User's HTTP stats.Profile
     private HttpRequest userHttp;
     private String reservedName;
     // TH stands for three hundred
@@ -62,27 +64,27 @@ public class Profile {
     public String toString() {
         String outString = reservedName + ":\n";
 
-        outString += "\t300 Stats:\n";
+        outString += "\t300 stats:\n";
         for( int i = 0; i < Constants.threeHundredKeys.length; i++ ) {
             outString += ( "\t\t" + Constants.threeHundredKeys[i] + ": " + threeHundred[i] + "\n");
         }
 
-        outString += "\tToday Stats:\n";
+        outString += "\tToday stats:\n";
         for( int i = 0; i < Constants.timeKeys.length; i++ ) {
             outString += "\t\t" + Constants.timeKeys[i] + ": " + today[i] + "\n";
         }
 
-        outString += "\tMonth Stats:\n";
+        outString += "\tMonth stats:\n";
         for( int i = 0; i < Constants.timeKeys.length; i++ ) {
             outString += "\t\t" + Constants.timeKeys[i] + ": " + month[i] + "\n";
         }
 
-        outString += "\tWeek Stats:\n";
+        outString += "\tWeek stats:\n";
         for( int i = 0; i < Constants.timeKeys.length; i++ ) {
             outString += "\t\t" + Constants.timeKeys[i] + ": " + week[i] + "\n";
         }
 
-        outString += "\tAll Stats:\n";
+        outString += "\tAll stats:\n";
         for( int i = 0; i < Constants.timeKeys.length; i++ ) {
             outString += "\t\t" + Constants.timeKeys[i] + ": " + all[i] + "\n";
         }

@@ -1,4 +1,6 @@
-import Stats.Constants;
+package stats;
+
+import stats.Constants;
 import org.json.JSONException;
 
 import java.io.BufferedReader;
