@@ -1,3 +1,6 @@
+import Stats.HttpRequest;
+import Stats.Profile;
+
 import java.util.Scanner;
 
 /**
