@@ -11,7 +11,7 @@ public class Constants {
     // Servers
         // an ALTSERVER exists because one is often down. Will later implement a switch if ResponseCode 500 is received
         // from the URL.
-    public static final String SERVER = "diameter";
+    public static final String SERVER = "radius";
     public static final String ALTSERVER = "diameter";
 
     // Object names
