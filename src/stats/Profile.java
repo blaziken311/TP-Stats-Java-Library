@@ -1,11 +1,17 @@
 package stats;
 
+import org.json.JSONException;
 import stats.Constants;
 import stats.HttpRequest;
 import org.json.JSONObject;
 
 /**
  * Created by arjun on 8/10/15.
+ */
+
+/**
+ * This class represents a user's profile. Its fields are normal arrays of stats and an HttpRequest object corresponding
+ * to his or her profile.
  */
 public class Profile {
     // User's HTTP stats.Profile
@@ -21,6 +27,13 @@ public class Profile {
     private int[] week;
     private int[] today;
 
+    /**
+     * Constructs a profile object and initializes all the stats to new arrays. It calls the refresh() method to refresh
+     * its fields with fresh data from the REST endpoint.
+     * @param myUserHttp The HttpRequest object corresponding to the user's profile.
+     * @throws Exception I got lazy. //write stuff here
+     * @see stats.HttpRequest
+     */
     public Profile( HttpRequest myUserHttp ) throws Exception {
         userHttp = myUserHttp;
         threeHundred = new double[3];
@@ -31,10 +44,20 @@ public class Profile {
         refresh();
     }
 
+    /**
+     * Refreshes all fields except userHttp with fresh data from the REST endpoint.
+     * @throws Exception I got lazy. //write stuff here
+     * @throws JSONException If a null value is passed into any JSON methods or if what is passed in is not a JSON object.
+     * @see stats.HttpRequest
+     * @see org.json.JSONObject
+     */
     // Refreshes instance variables
-    public void refresh() throws Exception {
+    public void refresh() throws Exception, JSONException {
         String jsonString = userHttp.execute();
 
+        //Locating square bracket's and deleting them using regex's to make a valid JSON object.
+            //I did this because Profile is supposed to represent ONE profile. The multiple Profiles feature is not
+            //necessary to implement in this class.
         jsonString=jsonString.replaceFirst("\\[","");
         jsonString=jsonString.replaceFirst("\\]$","");
 
@@ -60,6 +83,11 @@ public class Profile {
         }
     }
 
+    /**
+     * Overrides toString() method from java.lang.Object. This will print the JSON Keys/values in a more easily readable
+     * format.
+     * @return A more easily human readable version of the original JSON Block.
+     */
     @Override
     public String toString() {
         String outString = reservedName + ":\n";
@@ -93,30 +121,67 @@ public class Profile {
     }
 
     // GETTERS
+
+    /**
+     * Returns the userHttp field
+     * @return The userHttp field of this instance.
+     */
     public HttpRequest getUserHttp() {
         return userHttp;
     }
 
+    /**
+     * Returns the user's reservedName.
+     * @return The reservedName field of this instance.
+     */
     public String getReservedName() {
         return reservedName;
     }
 
+    /**
+     * Returns a regular array of the user's Rolling 300 stats. (Best Win Rate, Games Played, Current Win Rate)
+     * @return The user's Rolling 300 stats as an array.
+     */
     public double[] getThreeHundred() {
         return threeHundred;
     }
 
+    /**
+     * Returns a regular array of the user's all-time stats. See stats.Constants.timeKeys[] for more information about
+     * what each element of the array corresponds to.
+     * @return The user's all-time stats as an array.
+     * @see stats.Constants
+     */
     public int[] getAll() {
         return all;
     }
 
+    /**
+     * Returns a regular array of the user's month stats. See stats.Constants.timeKeys[] for more information about what
+     * each element of the array corresponds to.
+     * @return The user's month stats as an array.
+     * @see stats.Constants
+     */
     public int[] getMonth() {
         return month;
     }
 
+    /**
+     * Returns a regular array of the user's week stats. See stats.Constants.timeKeys[] for more information about what
+     * each element of the array corresponds to.
+     * @return The user's week stats as an array.
+     * @see stats.Constants
+     */
     public int[] getWeek() {
         return week;
     }
 
+    /**
+     * Returns a regular array of the user's stats today. See stats.Constants.timeKeys[] for more information about what
+     * each element of the array corresponds to.
+     * @return The user's today stats as an array.
+     * @see stats.Constants
+     */
     public int[] getToday() {
         return today;
     }

@@ -3,8 +3,14 @@ package stats;
 /**
  * Created by arjun on 8/10/15.
  */
+
+/**
+ * A class that holds Constants. Hardcoding is bad, kids.
+ */
 public class Constants {
     // Servers
+        // an ALTSERVER exists because one is often down. Will later implement a switch if ResponseCode 500 is received
+        // from the URL.
     public static final String SERVER = "diameter";
     public static final String ALTSERVER = "diameter";
 
