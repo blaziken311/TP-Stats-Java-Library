@@ -1,8 +1,5 @@
 package stats;
 
-import org.json.JSONException;
-import stats.Constants;
-import stats.HttpRequest;
 import org.json.JSONObject;
 
 /**
@@ -47,12 +44,10 @@ public class Profile {
     /**
      * Refreshes all fields except userHttp with fresh data from the REST endpoint.
      * @throws Exception I got lazy. //write stuff here
-     * @throws JSONException If a null value is passed into any JSON methods or if what is passed in is not a JSON object.
      * @see stats.HttpRequest
-     * @see org.json.JSONObject
      */
     // Refreshes instance variables
-    public void refresh() throws Exception, JSONException {
+    public void refresh() throws Exception {
         String jsonString = userHttp.execute();
 
         //Locating square bracket's and deleting them using regex's to make a valid JSON object.

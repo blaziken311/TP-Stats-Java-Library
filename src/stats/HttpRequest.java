@@ -1,10 +1,9 @@
 package stats;
 
-import org.json.JSONException;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -36,13 +35,12 @@ public class HttpRequest {
      * requests the stats from the server. In the case that someday the REST endpoint shows prettyPrinted JSON, the
      * while loop keeps the prettyPrint.
      * @return The user's stats as a JSON block.
-     * @throws IOException //write shit here later
-     * @throws JSONException //write shit here later
+     * @throws IOException I got lazy. //write stuff here later
      * @see java.net.URL
      * @see java.io.BufferedReader
      * @see java.lang.StringBuffer
      */
-    public String execute() throws IOException, JSONException {
+    public String execute() throws IOException {
         URL urlObj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
         connection.setRequestMethod("GET");
