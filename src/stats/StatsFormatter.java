@@ -1,7 +1,7 @@
 package stats;
 
 /**
- * Created by arjun on 8/10/15.
+ * A class with static methods for formatting certain stats.
  */
 public class StatsFormatter {
     /**
