@@ -15,7 +15,7 @@ The Profile object (which represents a Tagpro user Profile) you must pass in an 
 The HttpRequest constructor takes one parameter, the user's unique hash. So an example of building a profile would be:
 
 ```
-Profile me = new Profile( HttpRequest( "5372be1edde54f6e091ebc42" ) );
+Profile me = new Profile( new HttpRequest( "5372be1edde54f6e091ebc42" ) );
 ```
 
 You can then call the getter methods detailed in the documentation to get all the stats. For example.
