@@ -52,7 +52,6 @@ public class HttpRequest {
 
         BufferedReader br = new BufferedReader( new InputStreamReader( connection.getInputStream() ));
         String inLine;
-        //from StringBuffer to StringBuilder.
         StringBuffer response = new StringBuffer();
 
         while((inLine = br.readLine()) != null) {
